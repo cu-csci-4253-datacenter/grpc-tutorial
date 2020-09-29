@@ -1,3 +1,4 @@
+#!/usr/bin/env python3
 from concurrent import futures
 from PIL import Image
 import io
@@ -7,13 +8,19 @@ import hello_pb2_grpc
 
 class Server(hello_pb2_grpc.GreeterServicer):
     count = 0
+    def __init__(self):
+        Server.count = 0
+        print("Initializing Server instance")
+    
     def SayHello(self, request, context):
+        print("Receive SayHello({})".format(request.name))
         return hello_pb2.HelloReply(
             message = "Hello, {}!".format(request.name) )
     
     
     def SayHelloAgain(self, request, context):
         Server.count = Server.count + 1
+        print("Receive SayHelloAgain({})".format(request.name))
         return hello_pb2.HelloReply(
             message = "Hello #{}, {}".format(
                 Server.count, request.name))

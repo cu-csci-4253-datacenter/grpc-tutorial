@@ -10,6 +10,8 @@ class Server(hello_pb2_grpc.GreeterServicer):
         self.count = 0
         
     def SayHello(self, request, context):
+                print("Receive SayHello({})".format(request.name))
+
         return hello_pb2.HelloReply(
             message = "Hello, {}!".format(request.name) )
     
