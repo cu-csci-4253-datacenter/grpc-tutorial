@@ -17,6 +17,7 @@ class Server(hello_pb2_grpc.GreeterServicer):
     
     def SayHelloAgain(self, request, context):
         self.count = self.count + 1
+        print("Receive SayHelloAgain({})".format(request.name))
         return hello_pb2.HelloReply(
             message = "Hello #{}, {}".format(
                 self.count, request.name))
