@@ -7,6 +7,7 @@ import hello_pb2_grpc
 class Server(hello_pb2_grpc.GreeterServicer):
     def __init__(self):
         self.count = 0
+        print("Server ready!")
         
     def SayHello(self, request, context):
         print("Receive SayHello({})".format(request.name))
