@@ -11,3 +11,4 @@ tools:
 
 clean::
 	-rm -f hello_pb2.py hello_pb2_grpc.py
+	-rm -f -r __pycache__

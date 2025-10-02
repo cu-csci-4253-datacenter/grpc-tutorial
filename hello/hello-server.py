@@ -1,7 +1,5 @@
 #!/usr/bin/env python3
 from concurrent import futures
-from PIL import Image
-import io
 import grpc
 import hello_pb2
 import hello_pb2_grpc

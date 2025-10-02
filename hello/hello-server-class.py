@@ -1,7 +1,5 @@
 #!/usr/bin/env python3
 from concurrent import futures
-from PIL import Image
-import io
 import grpc
 import hello_pb2
 import hello_pb2_grpc
@@ -10,7 +8,7 @@ class Server(hello_pb2_grpc.GreeterServicer):
     count = 0
     def __init__(self):
         Server.count = 0
-        print("Initializing Server instance")
+        print("Server ready!")
     
     def SayHello(self, request, context):
         print("Receive SayHello({})".format(request.name))
